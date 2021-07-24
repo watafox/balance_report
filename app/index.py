@@ -1,4 +1,4 @@
-#import mysql.connector as mysql
+import mysql.connector as mysql
 user_name = "user"
 password = "password"
 host = "db"
