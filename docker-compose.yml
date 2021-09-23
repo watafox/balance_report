@@ -11,7 +11,6 @@ services:
             POSTGRES_PASSWORD: password
         volumes:
             - ${SRC_PATH}:/root/lib/postgresql/data
-        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_c
 
     web:
         build: .

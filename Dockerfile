@@ -25,5 +25,4 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 # requirements.txtを基にpip installする
 RUN pip install -r requirements.txt
-
 ADD . /root/app/
