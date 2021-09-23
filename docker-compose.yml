@@ -1,19 +1,23 @@
 version: '3'
+
 services:
     db:
         container_name: 'db'
-        image: mysql:5.7
+        image: postgres
         environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: balance
-            MYSQL_USER: user
-            MYSQL_PASSWORD: password
+            POSTGRES_ROOT_PASSWORD: root
+            POSTGRES_DATABASE: balance
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+        volumes:
+            - ${SRC_PATH}:/root/lib/postgresql/data
         command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_c
 
     web:
         build: .
         container_name: 'web'
         working_dir: '/root/app'
+        command: python3 manage.py runserver 0.0.0.0:8000
         tty: true
         volumes:
             - ${SRC_PATH}:/root/app
